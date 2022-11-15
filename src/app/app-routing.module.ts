@@ -22,11 +22,6 @@ const routes: Routes = [
       import('./favorites/favorites.module').then((m) => m.FavoritesModule),
   },
   // {
-  //   path: PATH.PHOTOS,
-  //   redirectTo: PATH.HOME,
-  //   pathMatch: 'full',
-  // },
-  // {
   //   path: PATH.ERROR,
   //   component: ErrorPageComponent,
   // },

@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
 
 import { PhotoDetailsComponent } from './photo-details.component';
+
+const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
 describe('PhotoDetailsComponent', () => {
   let component: PhotoDetailsComponent;
@@ -9,6 +12,7 @@ describe('PhotoDetailsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [PhotoDetailsComponent],
+      providers: [{ provide: Router, useValue: routerSpy }],
     }).compileComponents();
   });
 

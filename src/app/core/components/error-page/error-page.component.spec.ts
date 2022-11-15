@@ -1,7 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatButtonModule } from '@angular/material/button';
+import { Router } from '@angular/router';
 
 import { ErrorPageComponent } from './error-page.component';
+
+const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
 describe('ErrorPageComponent', () => {
   let component: ErrorPageComponent;
@@ -11,6 +14,7 @@ describe('ErrorPageComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [ErrorPageComponent],
       imports: [MatButtonModule],
+      providers: [{ provide: Router, useValue: routerSpy }],
     }).compileComponents();
   });
 

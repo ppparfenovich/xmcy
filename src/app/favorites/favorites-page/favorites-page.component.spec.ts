@@ -1,14 +1,24 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Router } from '@angular/router';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FavoritesService } from '../services/favorites.service';
 
 import { FavoritesPageComponent } from './favorites-page.component';
+
+const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
 
 describe('FavoritesPageComponent', () => {
   let component: FavoritesPageComponent;
   let fixture: ComponentFixture<FavoritesPageComponent>;
+  let favoritesService: FavoritesService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FavoritesPageComponent],
+      providers: [
+        { provide: Router, useValue: routerSpy },
+        { provide: favoritesService, useClass: FavoritesService },
+      ],
     }).compileComponents();
   });
 
