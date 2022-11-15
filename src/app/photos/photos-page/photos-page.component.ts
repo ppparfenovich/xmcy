@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { LoadingService } from '../../core/services/loading/loading.service';
 import { FavoritesService } from '../../favorites/services/favorites.service';
 import { IPhoto } from '../../shared/models/photo';
 import { PhotoService } from '../services/photo.service';
@@ -13,11 +14,12 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
   tooltip = 'Add to favorites';
   page = 1;
   photos: IPhoto[] = [];
-  isLoading = false;
 
-  private unsubscribe$ = new Subject<void>();
+  unsubscribe$ = new Subject<void>();
+  loading$ = this.loader.loading$;
 
   constructor(
+    private readonly loader: LoadingService,
     private readonly favoritesService: FavoritesService,
     private readonly photoService: PhotoService
   ) {}
@@ -40,11 +42,9 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
   }
 
   loadMorePhotos(page: number): void {
-    this.isLoading = true;
     this.photoService
       .getProducts(page)
       .subscribe((photos) => this.photos.push(...photos));
-    this.isLoading = false;
   }
 
   addToFavorites(photo: IPhoto): void {

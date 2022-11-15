@@ -1,9 +1,10 @@
-import { HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
-import { ApiService } from '../../core/services/api/api.service';
 import { IPhoto, IPhotoResponse } from '../../shared/models/photo';
+
+const BASE_URL = 'https://dummyjson.com/';
 
 enum PHOTO_REQUEST_PARAMS {
   LIMIT = 'limit',
@@ -15,10 +16,13 @@ const PHOTO_DATA_SHOWING = 6;
 @Injectable({
   providedIn: 'root',
 })
-export class PhotoService extends ApiService {
+export class PhotoService {
+  constructor(private readonly http: HttpClient) {}
+
   getProducts(page: number): Observable<IPhoto[]> {
     const productsLoad = PHOTO_DATA_SHOWING * page;
-    const url = this.getUrl('photoData', 'products');
+
+    const url = BASE_URL + 'products';
     let params: HttpParams;
 
     page === 1
@@ -37,7 +41,7 @@ export class PhotoService extends ApiService {
   }
 
   getProductById(id: string): Observable<IPhoto> {
-    const url = this.getUrl('photoData', `products/${id}`);
+    const url = BASE_URL + `products/${id}`;
 
     return this.http.get<IPhoto>(url).pipe(
       debounceTime(this.getRandomDelay()),

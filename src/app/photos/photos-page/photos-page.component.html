@@ -4,5 +4,8 @@
     [cardTooltip]="tooltip"
     (handleClick)="addToFavorites($event)"
   ></app-photos-list>
-  <mat-progress-spinner *ngIf="isLoading"></mat-progress-spinner>
+  <mat-progress-spinner
+    [mode]="'indeterminate'"
+    *ngIf="loading$ | async"
+  ></mat-progress-spinner>
 </app-infinite-scroll>

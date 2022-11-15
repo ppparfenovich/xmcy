@@ -1,8 +1,3 @@
-import { Config } from './config.interface';
-
-export const environment: Config = {
+export const environment = {
   production: true,
-  apiEndpoints: {
-    photoData: 'https://dummyjson.com',
-  },
 };
