@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ photo.title }}</mat-card-title>
+  </mat-card-header>
+  <button
+    mat-stroked-button
+    color="accent"
+    matTooltip="Add to favorites"
+    (click)="addToFavorites(photo)"
+  >
+    <img mat-card-image [src]="photo.thumbnail" alt="Photo {{ photo.title }}" />
+  </button>
+</mat-card>

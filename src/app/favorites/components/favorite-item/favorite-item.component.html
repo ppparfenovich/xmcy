@@ -1,0 +1,13 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ photo.title }}</mat-card-title>
+  </mat-card-header>
+  <div class="img-container">
+    <img mat-card-image [src]="photo.thumbnail" alt="Photo {{ photo.title }}" />
+  </div>
+  <mat-card-actions>
+    <button mat-stroked-button color="accent" matTooltip="Navigate to details">
+      More ...
+    </button>
+  </mat-card-actions>
+</mat-card>

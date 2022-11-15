@@ -1,0 +1,27 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ photoData.title }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ photoData.description }}
+    </p>
+    <div class="img-container">
+      <img
+        mat-card-image
+        [src]="photoData.thumbnail"
+        alt="Photo {{ photoData.title }}"
+      />
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-stroked-button
+      matTooltip="Open main page"
+      color="accent"
+      (click)="goHome()"
+    >
+      BACK
+    </button>
+  </mat-card-actions>
+</mat-card>

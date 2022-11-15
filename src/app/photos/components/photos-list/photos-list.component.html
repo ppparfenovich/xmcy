@@ -1,0 +1,7 @@
+<app-infinite-scroll (scrolled)="onScroll()">
+  <mat-grid-list cols="3" rowHeight="500px" gutterSize="10px">
+    <mat-grid-tile *ngFor="let photo of photos; trackBy: identifyById">
+      <app-photo-item [photo]="photo"></app-photo-item>
+    </mat-grid-tile>
+  </mat-grid-list>
+</app-infinite-scroll>
