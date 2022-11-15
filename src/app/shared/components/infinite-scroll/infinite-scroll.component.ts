@@ -27,8 +27,7 @@ export class InfiniteScrollComponent implements AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.observer = new IntersectionObserver(
-      (event) => {
-        console.log('intersect:', event);
+      () => {
         this.scrolled.emit();
       },
       {
@@ -36,7 +35,6 @@ export class InfiniteScrollComponent implements AfterViewInit, OnDestroy {
       }
     );
 
-    console.log('anchor:', this.anchor);
     this.observer.observe(this.anchor.nativeElement);
   }
 

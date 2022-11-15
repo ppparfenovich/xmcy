@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { IPhoto } from '../../photos/models/photo';
+import { IPhoto } from '../../shared/models/photo';
 
 @Injectable({
   providedIn: 'root',
@@ -12,5 +12,11 @@ export class FavoritesService {
 
   addPhoto(photo: IPhoto): void {
     this.favoritesList.next([...this.favoritesList.value, photo]);
+  }
+
+  removePhoto(id: number): void {
+    this.favoritesList.next(
+      this.favoritesList.value.filter((photo) => photo.id !== id)
+    );
   }
 }

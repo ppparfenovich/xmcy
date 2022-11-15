@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PhotosListComponent } from './photos/components/photos-list/photos-list.component';
+import { PhotosPageComponent } from './photos/photos-page/photos-page.component';
 
 export enum PATH {
   HOME = '',
@@ -14,7 +14,7 @@ export enum PATH {
 const routes: Routes = [
   {
     path: PATH.HOME,
-    component: PhotosListComponent,
+    component: PhotosPageComponent,
   },
   {
     path: PATH.FAVORITES,

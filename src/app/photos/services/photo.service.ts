@@ -1,9 +1,9 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { ApiService } from '../../../core/services/api/api.service';
-import { IPhoto, IPhotoResponse } from '../../models/photo';
+import { debounceTime, map } from 'rxjs/operators';
+import { ApiService } from '../../core/services/api/api.service';
+import { IPhoto, IPhotoResponse } from '../../shared/models/photo';
 
 enum PHOTO_REQUEST_PARAMS {
   LIMIT = 'limit',
@@ -30,14 +30,22 @@ export class PhotoService extends ApiService {
           .set(PHOTO_REQUEST_PARAMS.LIMIT, PHOTO_DATA_SHOWING)
           .set(PHOTO_REQUEST_PARAMS.SKIP, productsLoad - PHOTO_DATA_SHOWING));
 
-    return this.http
-      .get<IPhotoResponse>(url, { params })
-      .pipe(map((result) => result.products));
+    return this.http.get<IPhotoResponse>(url, { params }).pipe(
+      debounceTime(this.getRandomDelay()),
+      map((result) => result.products)
+    );
   }
 
   getProductById(id: string): Observable<IPhoto> {
     const url = this.getUrl('photoData', `products/${id}`);
 
-    return this.http.get<IPhoto>(url).pipe(map((result) => result));
+    return this.http.get<IPhoto>(url).pipe(
+      debounceTime(this.getRandomDelay()),
+      map((result) => result)
+    );
+  }
+
+  getRandomDelay(): number {
+    return Math.floor(Math.random() * 100) + 200;
   }
 }

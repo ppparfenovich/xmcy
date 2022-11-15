@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PATH } from '../app-routing.module';
-import { PhotoDetailsComponent } from './components/photo-details/photo-details.component';
+import { PhotoDetailsComponent } from '../shared/components/photo-details/photo-details.component';
 
 const routes: Routes = [
   {

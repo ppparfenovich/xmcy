@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FavoriteItemComponent } from './favorite-item.component';
+import { PhotosPageComponent } from './photos-page.component';
 
-describe('FavoriteItemComponent', () => {
-  let component: FavoriteItemComponent;
-  let fixture: ComponentFixture<FavoriteItemComponent>;
+describe('PhotosPageComponent', () => {
+  let component: PhotosPageComponent;
+  let fixture: ComponentFixture<PhotosPageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FavoriteItemComponent],
+      declarations: [PhotosPageComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FavoriteItemComponent);
+    fixture = TestBed.createComponent(PhotosPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

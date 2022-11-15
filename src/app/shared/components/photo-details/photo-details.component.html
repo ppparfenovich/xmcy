@@ -1,11 +1,8 @@
-<mat-card>
+<mat-card *ngIf="photoData" class="card">
   <mat-card-header>
     <mat-card-title>{{ photoData.title }}</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>
-      {{ photoData.description }}
-    </p>
     <div class="img-container">
       <img
         mat-card-image
@@ -17,11 +14,11 @@
   <mat-card-actions>
     <button
       mat-stroked-button
-      matTooltip="Open main page"
+      matTooltip="Delete from favorites"
       color="accent"
-      (click)="goHome()"
+      (click)="removeFromFavorites(photoData.id)"
     >
-      BACK
+      Remove from favorites
     </button>
   </mat-card-actions>
 </mat-card>

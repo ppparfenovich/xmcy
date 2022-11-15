@@ -1,0 +1,8 @@
+<app-infinite-scroll (scrolled)="onScroll()">
+  <app-photos-list
+    [photos]="photos"
+    [cardTooltip]="tooltip"
+    (handleClick)="addToFavorites($event)"
+  ></app-photos-list>
+  <mat-progress-spinner *ngIf="isLoading"></mat-progress-spinner>
+</app-infinite-scroll>
