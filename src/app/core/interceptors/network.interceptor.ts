@@ -6,7 +6,7 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { finalize } from 'rxjs/operators';
+import { finalize, debounceTime } from 'rxjs/operators';
 import { LoadingService } from '../services/loading/loading.service';
 
 @Injectable()
@@ -19,9 +19,14 @@ export class NetworkInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<unknown>> {
     this.loader.show();
     return next.handle(request).pipe(
+      debounceTime(this.getRandomDelay()),
       finalize(() => {
         this.loader.hide();
       })
     );
+  }
+
+  getRandomDelay(): number {
+    return Math.floor(Math.random() * 100) + 200;
   }
 }

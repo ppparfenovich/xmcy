@@ -2,8 +2,9 @@
   <a
     mat-button
     matTooltip="Open main page"
-    routerLink="/photos"
+    routerLink="/"
     routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
     class="logo"
   >
     Photos

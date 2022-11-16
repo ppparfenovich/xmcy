@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { asapScheduler, of } from 'rxjs';
@@ -17,18 +18,13 @@ describe('PhotosPageComponent', () => {
   let photoService: PhotoService;
 
   beforeEach(async () => {
-    const fakeService = {
-      getHeroes() {
-        return of([...MOCK_PHOTO_LIST]).pipe(observeOn(asapScheduler));
-      },
-    } as Partial<PhotoService>;
-
     await TestBed.configureTestingModule({
       declarations: [PhotosPageComponent],
+      imports: [HttpClientTestingModule],
       providers: [
         { provide: loader, useClass: LoadingService },
         { provide: favoritesService, useClass: FavoritesService },
-        { provide: PhotoService, useValue: fakeService },
+        { provide: photoService, useClass: PhotoService },
       ],
     }).compileComponents();
   });

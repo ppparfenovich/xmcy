@@ -14,6 +14,7 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
   tooltip = 'Add to favorites';
   page = 1;
   photos: IPhoto[] = [];
+  isLoading = false;
 
   unsubscribe$ = new Subject<void>();
   loading$ = this.loader.loading$;
@@ -42,9 +43,11 @@ export class PhotosPageComponent implements OnInit, OnDestroy {
   }
 
   loadMorePhotos(page: number): void {
+    this.isLoading = true;
     this.photoService
       .getProducts(page)
       .subscribe((photos) => this.photos.push(...photos));
+    this.isLoading = false;
   }
 
   addToFavorites(photo: IPhoto): void {

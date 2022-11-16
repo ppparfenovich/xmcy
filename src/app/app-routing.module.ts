@@ -21,11 +21,6 @@ const routes: Routes = [
     loadChildren: () =>
       import('./favorites/favorites.module').then((m) => m.FavoritesModule),
   },
-  // {
-  //   path: PATH.ERROR,
-  //   component: ErrorPageComponent,
-  // },
-  // { path: '**', redirectTo: PATH.ERROR },
 ];
 
 @NgModule({

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MOCK_PHOTO_DATA } from '../../mocks/photos';
 
 import { PhotoItemComponent } from './photo-item.component';
 
@@ -15,6 +16,7 @@ describe('PhotoItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(PhotoItemComponent);
     component = fixture.componentInstance;
+    component.photo = MOCK_PHOTO_DATA;
     fixture.detectChanges();
   });
 

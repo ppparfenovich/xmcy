@@ -5,13 +5,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ErrorPageComponent } from './core/components/error-page/error-page.component';
 import { HeaderComponent } from './core/components/header/header.component';
 import { MaterialModule } from './material.module';
 import { PhotosModule } from './photos/photos.module';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, ErrorPageComponent],
+  declarations: [AppComponent, HeaderComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
