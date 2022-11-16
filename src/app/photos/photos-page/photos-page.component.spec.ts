@@ -1,11 +1,8 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { asapScheduler, of } from 'rxjs';
-import { observeOn } from 'rxjs/operators';
 import { LoadingService } from '../../core/services/loading/loading.service';
 import { FavoritesService } from '../../favorites/services/favorites.service';
-import { MOCK_PHOTO_LIST } from '../../shared/mocks/photos';
 import { PhotoService } from '../services/photo.service';
 
 import { PhotosPageComponent } from './photos-page.component';

@@ -7,7 +7,6 @@ export enum PATH {
   PHOTOS = 'photos',
   PHOTOS_ID = 'photos/:id',
   FAVORITES = 'favorites',
-  ERROR = 'error',
   ID = ':id',
 }
 

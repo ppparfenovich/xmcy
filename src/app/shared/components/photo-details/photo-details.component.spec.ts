@@ -7,8 +7,6 @@ import { PhotoService } from '../../../photos/services/photo.service';
 
 import { PhotoDetailsComponent } from './photo-details.component';
 
-const routerSpy = jasmine.createSpyObj('Router', ['navigateByUrl']);
-
 describe('PhotoDetailsComponent', () => {
   let component: PhotoDetailsComponent;
   let fixture: ComponentFixture<PhotoDetailsComponent>;

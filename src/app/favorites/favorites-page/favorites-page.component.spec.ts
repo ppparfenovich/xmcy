@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
 import { FavoritesService } from '../services/favorites.service';
 
 import { FavoritesPageComponent } from './favorites-page.component';

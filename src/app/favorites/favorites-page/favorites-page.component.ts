@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
 import { PATH } from '../../app-routing.module';
 import { IPhoto } from '../../shared/models/photo';
 import { FavoritesService } from '../services/favorites.service';
